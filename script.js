@@ -28,19 +28,14 @@ document.addEventListener('DOMContentLoaded', function() {
         sectionObserver.observe(section);
     });
 
-    // --- Smooth Scrolling for Nav Links (REVISED AND CORRECTED) ---
+    // --- Smooth Scrolling for Nav Links (Simplified) ---
+    // The CSS 'scroll-padding-top' property now handles the offset. 
+    // This JS just ensures the smooth animation.
     document.querySelectorAll('.nav-menu a').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            // This is the more reliable calculation method
-            const navbarHeight = navbar.offsetHeight;
-            const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-
-            window.scrollTo({
-                top: targetPosition,
+            document.querySelector(targetId).scrollIntoView({
                 behavior: 'smooth'
             });
         });
