@@ -15,6 +15,8 @@
 
 html {
     scroll-behavior: smooth;
+    /* THIS IS THE FIX: Tells the browser to leave 80px of space at the top when scrolling to any #link */
+    scroll-padding-top: 80px; 
 }
 
 body {
@@ -40,7 +42,7 @@ body {
     z-index: 1; /* Background layer */
 }
 
-/* --- Main Content Layers (THE FIX) --- */
+/* --- Main Content Layers --- */
 header, main {
     position: relative;
     z-index: 2; /* Content layer, above the background */
